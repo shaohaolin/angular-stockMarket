@@ -1,0 +1,23 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-2">
+
+			Search: <input ng-model="query">
+			Sort by:
+			<select ng-model="orderProp">
+				<option value="name">Alphabetical</option>
+				<option value="openPrice">Highest</option>
+			</select>
+
+		</div>
+		<div class="col-md-10">
+			<ul>
+				<li ng-repeat="company in companies | filter:query | orderBy:orderProp">
+					<span>{{company.companyName}}</span>
+					<p>open Price : ${{company.openPrice}}</p>
+				</li>
+			</ul>
+
+		</div>
+	</div>
+</div>
