@@ -40,7 +40,7 @@
 						<tbody class="rowlink">
 
 							<tr ng-repeat="company in companies | filter:query | orderBy:orderProp">
-								<td>{{company.companyName}}</td>
+								<td><a href="" ng-click="buyStock(company.url);">{{company.companyName}}</a></td>
 								<td>${{company.openPrice}}</td>
 								<td>${{company.currentPrice}}</td>
 								<td>{{company.value}}</td>
@@ -48,14 +48,22 @@
 								<td class="netChange">{{company.netChange}}%</td>
 								<td>{{company.shareVolume}}</td>
 								<td>
-									<a href="#"><button class="summary-button">Buy</button></a>
-									<a href="#"><button class="summary-button">Sell</button></a>
+									<a href="#"><button ng-click="buyStock(company.url);" class="summary-button">Buy</button></a>
+									<a href="#"><button ng-click="sellStock(company.id);" class="summary-button">Sell</button></a>
 								</td>
 							</tr>    
 						</tbody>
 					</table>
+					<div>Show Company Icon:
+						<a href="" ng-mouseenter="showme=true">Show</a>
+						<button ng-mouseenter="showme=false">Hide</button> 
+						<p ng-hide = "showme">Hiding!!!!!!!</p>
+						<p ng-show = "showme">Show :)</p>
+					</div>
 
 				</div>
 			</div>	
+		</div>
+	</div>
 </body>
 </html>

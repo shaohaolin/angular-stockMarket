@@ -13,4 +13,13 @@ companyApp.controller('CompanyListCtrl',['$scope', '$http', function($scope, $ht
 	});
 
 	$scope.orderProp = 'openPrice';
+
+	$scope.buyStock = function(companyImgUrl) {
+		alert("Company Image is " + companyImgUrl);
+	};
+
+	$scope.sellStock = function(company) {
+		alert("Company " + company);
+	}
+
 }]);
