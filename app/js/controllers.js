@@ -16,10 +16,12 @@ companyApp.controller('CompanyListCtrl',['$scope', '$http', function($scope, $ht
 
 	$scope.buyStock = function(companyImgUrl) {
 		alert("Company Image is " + companyImgUrl);
+		$scope.selectedUrl = companyImgUrl;
 	};
 
 	$scope.sellStock = function(company) {
 		alert("Company " + company);
+		$scope.selectedCompany = company;
 	}
 
 }]);
