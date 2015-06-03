@@ -1,0 +1,56 @@
+<div class="row">
+    <div class="container-fluid state-summary">
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="nav nav-pills state-summary-nav">
+                    <li class="state-summary-nav-title" {{action 'filterFunction' 'none'}}><a>Most Active by Volume</a></li>
+                    <li {{action 'filterFunction' 'increase'}}><a class="summary-item">Gainers</a></li>
+                    <li  {{action 'filterFunction' 'decrease'}}><a class="summary-item">Losers</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="stock-summary-table">
+        <div class="col-md-12">
+            <table class="table table-striped table-hover">
+                <thead>
+                <tr>
+                    <th>Company</th>
+                    <th>Open Price</th>
+                    <th>Current Price</th>
+                    <th colspan="3">Change</th>
+                    <th>Share Volume</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody class="rowlink">
+                {{#each company in sortedCompany}}
+                <tr>
+                    <td>{{#link-to 'marketByOrder' company.id}}{{company.companyName}}{{/link-to}}</td>
+                    <td>${{company.openPrice}}</td>
+                    <td>${{company.currentPrice}}</td>
+                    <td>{{company.value}}</td>
+                    <td><img {{bind-attr src="company.changeIcon"}}/></td>
+                    <td class="netChange">{{company.netChange}}%</td>
+                    <td>{{company.shareVolume}}</td>
+                    <td>
+                        <a href="#"><button class="summary-button">{{#link-to 'placeBidOrder' company.id}}Buy{{/link-to}}</button></a>
+                        <a href="#"><button class="summary-button">{{#link-to 'placeSellOrder' company.id}}Sell{{/link-to}}</button></a>
+                    </td>
+                </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{{outlet}}
+<div class="contain-fluid site-footer">
+    <div class="row">
+        <div class="col-md-12">
+            <hr/>
+            <p> SHAOHAO LIN COPYRIGHT@2015 ALL RIGHTS RESERVED.</p>
+
+        </div>
+    </div>
+</div>
